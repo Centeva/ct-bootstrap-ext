@@ -1,0 +1,46 @@
+﻿/**
+    Classes for type/font, etc.
+*/
+
+/** Extends the .h* and removes margin. Great way to get just the size of the font without extra margin*/
+.text-h1 {
+    &:extend(.h1);
+    margin: 0;
+}
+
+.text-h2 {
+    &:extend(.h2);
+    margin: 0;
+}
+
+.text-h3 {
+    &:extend(.h3);
+    margin: 0;
+}
+
+.text-h4 {
+    &:extend(.h4);
+    margin: 0;
+}
+
+.text-h5 {
+    &:extend(.h5);
+    margin: 0;
+}
+
+.text-h6 {
+    &:extend(.h6);
+    margin: 0;
+}
+
+/**Generates icon sizes*/
+.icon-sizes(24px, xl);
+.icon-sizes(20px, lg);
+.icon-sizes(16px, md);
+.icon-sizes(12px, sm);
+
+.icon-sizes(@fontsize, @size) {
+    .icon-@{size} {
+        font-size: @fontsize;
+    }
+}

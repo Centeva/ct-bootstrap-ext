@@ -1,0 +1,84 @@
+﻿@btn-secondary-color: #58595b;
+@btn-secondary-bg: #d1d3d4;
+@btn-secondary-border: #d1d3d4;
+
+.btn-secondary {
+    .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+}
+
+.btn-success.btn-secondary {
+    .button-variant(@btn-success-bg; @btn-success-color; @btn-success-bg);
+}
+
+.btn-primary.btn-secondary {
+    .button-variant(@btn-primary-bg; @btn-primary-color; @btn-primary-bg);
+}
+
+.btn-info.btn-secondary {
+    .button-variant(@btn-info-bg; @btn-info-color; @btn-info-bg);
+}
+
+.btn-warning.btn-secondary {
+    .button-variant(@btn-warning-bg; @btn-warning-color; @btn-warning-bg);
+}
+
+.btn-danger.btn-secondary {
+    .button-variant(@btn-danger-bg; @btn-danger-color; @btn-danger-bg);
+}
+
+.button-round-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+    .button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius);
+    text-align: center;
+
+    div {
+        @line-offset: abs(ceil((@line-height - @font-size) / 2));
+        width: @font-size + @line-offset;
+        height: @font-size + @line-offset;
+        line-height: @font-size;
+        padding: @line-offset/2 0 @line-offset/2 0;
+    }
+}
+
+.btn-round-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-round-size(@padding-large-vertical; @padding-large-vertical; @font-size-large; @line-height-large; 50%);
+}
+
+.btn-round {
+    .button-round-size(@padding-base-vertical; @padding-base-vertical; @font-size-base; @line-height-base; 50%);
+}
+
+.btn-round-sm {
+    // line-height: ensure proper height of button next to small input
+    .button-round-size(@padding-small-vertical; @padding-small-vertical; @font-size-small; @line-height-small; 50%);
+}
+
+.btn-round-xs {
+    .button-round-size(@padding-xs-vertical; @padding-xs-vertical; @font-size-small; @line-height-small; 50%);
+}
+
+.btn-shadow,
+.btn.disabled.btn-shadow {
+    -webkit-box-shadow: 1px 1px 1px #888888;
+    -ms-box-shadow: 1px 1px 1px #888888;
+    box-shadow: 1px 1px 1px #888888 !important;
+}
+
+.btn-discrete {
+    border: none;
+}
+
+// Make a link silent
+.a-silent {
+    color: inherit;
+
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &:focus {
+        text-decoration: none;
+        color: inherit;
+    }
+}

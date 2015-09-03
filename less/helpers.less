@@ -1,0 +1,15 @@
+﻿/**
+    Various helper classes that don't really fit anywhere else but are usefull.
+*/
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ellipsis-inline {
+    &:extend(.ellipsis);
+    display: inline-block;
+    width: 100%;
+}

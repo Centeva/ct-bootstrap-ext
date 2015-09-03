@@ -1,0 +1,200 @@
+﻿// Extra large screen / wide desktop
+//** Deprecated `@screen-xl` as of v3.0.1
+@screen-xl: 1500px;
+@screen-xl-min: @screen-xl;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-xl-desktop: @screen-xl-min;
+
+// Large screen / wide desktop
+@container-xlarge-desktop: (1450px + @grid-gutter-width);
+
+//** For `@screen-lg-min` and up.
+@container-xl: @container-xlarge-desktop;
+
+// Extra large screen / wide desktop
+//** Deprecated `@screen-xl` as of v3.0.1
+@screen-xxl: 1800px;
+@screen-xxl-min: @screen-xxl;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-xxl-desktop: @screen-xxl-min;
+
+// Large screen / wide desktop
+@container-xxlarge-desktop: (1750px + @grid-gutter-width);
+
+//** For `@screen-lg-min` and up.
+@container-xxl: @container-xxlarge-desktop;
+
+.container {
+    .container-fixed();
+
+    @media (min-width: @screen-xl-min) {
+        width: @container-xl;
+    }
+
+    @media (min-width: @screen-xxl-min) {
+        width: @container-xxl;
+    }
+}
+
+// XLarge grid
+//
+// Columns, offsets, pushes, and pulls for the xlarge desktop device range.
+
+@media (min-width: @screen-xl-min) {
+    .make-grid(xl);
+}
+
+
+@media (min-width: @screen-xxl-min) {
+    .make-grid(xxl);
+}
+
+
+@screen-lg-max: (@screen-xl - 1);
+@screen-xl-max: (@screen-xxl - 1);
+
+.x-visible(sm, @screen-sm-min, @screen-sm-max);
+.x-visible(md, @screen-md-min, @screen-md-max);
+.x-visible(lg, @screen-lg-min, @screen-lg-max);
+.x-visible(xl, @screen-xl-min, @screen-xl-max);
+
+.x-visible-xs {
+    .responsive-invisibility();
+}
+
+.x-visible-xs {
+    @media (max-width: @screen-xs-max) {
+        .responsive-visibility();
+    }
+}
+
+.x-visible-xs-block {
+    @media (max-width: @screen-xs-max) {
+        display: block !important;
+    }
+}
+
+.x-visible-xs-inline {
+    @media (max-width: @screen-xs-max) {
+        display: inline !important;
+    }
+}
+
+.x-visible-xs-inline-block {
+    @media (max-width: @screen-xs-max) {
+        display: inline-block !important;
+    }
+}
+
+.x-visible(@bp, @min, @max) {
+    .x-visible-@{bp} {
+        .responsive-invisibility();
+    }
+
+    .x-visible-@{bp} {
+        @media (min-width: @min) and (max-width: @max) {
+            .responsive-visibility();
+        }
+    }
+
+    .x-visible-@{bp}-block {
+        @media (min-width: @min) and (max-width: @max) {
+            display: block !important;
+        }
+    }
+
+    .x-visible-@{bp}-inline {
+        @media (min-width: @min) and (max-width: @max) {
+            display: inline !important;
+        }
+    }
+
+    .x-visible-@{bp}-inline-block {
+        @media (min-width: @min) and (max-width: @max) {
+            display: inline-block !important;
+        }
+    }
+}
+
+.x-visible-xxl {
+    .responsive-invisibility();
+}
+
+.x-visible-xxl {
+    @media (min-width: @screen-xxl-min) {
+        .responsive-visibility();
+    }
+}
+
+.x-visible-xxl-block {
+    @media (min-width: @screen-xxl-min) {
+        display: block !important;
+    }
+}
+
+.x-visible-xxl-inline {
+    @media (min-width: @screen-xxl-min) {
+        display: inline !important;
+    }
+}
+
+.x-visible-xxl-inline-block {
+    @media (min-width: @screen-xxl-min) {
+        display: inline-block !important;
+    }
+}
+
+.x-hidden-xs {
+  @media (max-width: @screen-xs-max) {
+    .responsive-invisibility();
+  }
+}
+.x-hidden-sm {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .responsive-invisibility();
+  }
+}
+.x-hidden-md {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .responsive-invisibility();
+  }
+}
+.x-hidden-lg {
+  @media (min-width: @screen-lg-min) and (max-width: @screen-lg-max) {
+    .responsive-invisibility();
+  }
+}
+.x-hidden-xl {
+  @media (min-width: @screen-xl-min) and (max-width: @screen-xl-max) {
+    .responsive-invisibility();
+  }
+}
+.x-hidden-xxl {
+  @media (min-width: @screen-xxl-min) {
+    .responsive-invisibility();
+  }
+}
+
+.x-make-grid-columns();
+.x-make-grid-columns() {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@index) { // initial
+    @item: ~".col-xl-@{index}, .col-xxl-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+    @item: ~".col-xl-@{index}, .col-xxl-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  ceil((@grid-gutter-width / 2));
+      padding-right: floor((@grid-gutter-width / 2));
+    }
+  }
+  .col(1); // kickstart it
+}

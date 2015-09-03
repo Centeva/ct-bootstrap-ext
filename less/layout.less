@@ -1,0 +1,58 @@
+﻿/**
+    Defines padding classes, e.g.
+    pad-xs, pad-top-xs, mar-bottom-md, mar-left-lg, pad-none, mar-top-none, and so forth.
+*/
+@pad-mar-xs: 2px;
+@pad-mar-sm: 4px;
+@pad-mar-md: 8px;
+@pad-mar-lg: 15px;
+@pad-mar-xl: 32px;
+
+.pad-mar(xs, @pad-mar-xs);
+.pad-mar(sm, @pad-mar-sm);
+.pad-mar(md, @pad-mar-md);
+.pad-mar(lg, @pad-mar-lg);
+.pad-mar(xl, @pad-mar-xl);
+.pad-mar(none, 0);
+
+.pad-mar(@size,@val) {
+    .pad-@{size} {
+        padding: @val;
+    }
+
+    .pad-top-@{size} {
+        padding-top: @val;
+    }
+
+    .pad-right-@{size} {
+        padding-right: @val;
+    }
+
+    .pad-bottom-@{size} {
+        padding-bottom: @val;
+    }
+
+    .pad-left-@{size} {
+        padding-left: @val;
+    }
+
+    .mar-@{size} {
+        margin: @val;
+    }
+
+    .mar-top-@{size} {
+        margin-top: @val;
+    }
+
+    .mar-right-@{size} {
+        margin-right: @val;
+    }
+
+    .mar-bottom-@{size} {
+        margin-bottom: @val;
+    }
+
+    .mar-left-@{size} {
+        margin-left: @val;
+    }
+}
