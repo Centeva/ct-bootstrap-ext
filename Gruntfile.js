@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                 options: {
                     sourceMap: true,
                     outputSourceFiles: true,
-                    sourceMapURL: 'temp/bootstrap-ext.css.map'
+                    sourceMapURL: '/temp/bootstrap-ext.css.map'
                 },
                 files: {
                     'temp/bootstrap-ext.css': 'less/bootstrap-ext.less'
