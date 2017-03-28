@@ -73,6 +73,45 @@
 	text-decoration: none;
 }
 
+.btn-text:hover {
+    &:extend(.btn-link:hover);
+    text-decoration: none;
+}
+
+.btn-text:focus {
+    &:extend(.btn-link:focus);
+    text-decoration: none;
+}
+
+.btn-text:active {
+    &:extend(.btn-link:active);
+    text-decoration: none;
+}
+
+.btn-text:active:focus {
+    &:extend(.btn-link:focus);
+    text-decoration: none;
+}
+
+.btn-text.btn-primary {
+    color: @brand-primary;
+}
+.btn-text.btn-success {
+    color: @brand-primary;
+}
+.btn-text.btn-warning {
+    color: @brand-warning;
+}
+.btn-text.btn-danger {
+    color: @brand-danger;
+}
+.btn-text.btn-info {
+    color: @brand-info;
+}
+.btn-text.btn-action {
+    color: @brand-action;
+}
+
 // Make a link silent
 .a-silent {
     color: inherit;
